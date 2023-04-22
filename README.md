@@ -5,7 +5,7 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 
 ![scraped manga](https://img.shields.io/badge/dynamic/json?label=total-scraped-manga&query=$[%27total-scraped-manga%27]&url=https%3A%2F%2Fapi.jsonbin.io%2Fv3%2Fb%2F6443efbd9d312622a34fd4da%3Fmeta%3Dfalse "scraped manga") ![available domains to scrap](https://img.shields.io/badge/dynamic/json?label=domains-count-available-to-scrap&query=$[%27total-domains-available-to-scrap%27]&url=https%3A%2F%2Fapi.jsonbin.io%2Fv3%2Fb%2F6443efbd9d312622a34fd4da%3Fmeta%3Dfalse "available domains to scrap")
  ## Features
-- [x]Easy-to-use Scrapy spiders for scraping manga web pages
+- Easy-to-use Scrapy spiders for scraping manga web pages
 - Flexible and customizable to suit different manga sources
 - Scrapes a large number of manga titles
 - Supports multiple domains for scraping
