@@ -7,16 +7,14 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
  ## Features
 - [x] Easy-to-use Scrapy spiders for scraping manga web pages.
 - [x] Flexible and customizable to suit different manga sources.
+- [x] No central management, allowing anyone to add a manga as they wish.
 - [x] Scrapes a large number of manga titles.
 - [x] Supports multiple domains for scraping.
 - [x] Provides dynamic badges to display scraped manga count and available domains count.
 - [x] MIT license for open-source usage.
 - [x] Integrates with Manga Hero website for easy access to manga content.
 - [x] Regular updates and improvements for better performance.
-- [x] Well-documented code for easy understanding and maintenance.
-- [x] Active community support for any questions or issues.
 - [x] ad-free.
-- [x] No central management, allowing anyone to add a manga as they wish.
 
 ## to do 
 - [ ] Background keyframe bookmarking for chapters,
@@ -40,14 +38,23 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 |     [azoranov](https://azoranov.com/)      |       ARABIC       |   PERFECT   |
 | [aresmanga](https://aresmanga.net/series/) |       ARABIC       |   PERFECT   |
 | [ozulscans](https://ozulscans.com/manga/)  |       ARABIC       |   PERFECT   |
-|       [team1x1](https://team1x1.fun)       |       ARABIC       |   PERFECT   |
-|    [kissmanga](https://kissmanga.org/)     |       ENGLISH      |   PERFECT   |
-|   [bibimanga](https://bibimanga.com/)      |       ENGLISH      |   PERFECT   |
-|   [manganelo](https://ww5.manganelo.tv/)   |       ENGLISH      |   MEDIUM    |
+|     [team1x1](https://team1x1.fun)         |       ARABIC       |   PERFECT   |
+|     [kissmanga](https://kissmanga.org/)    |       ENGLISH      |   PERFECT   |
+|     [bibimanga](https://bibimanga.com/)    |       ENGLISH      |   MEDIUM    |
+|     [manganelo](https://ww5.manganelo.tv/) |       ENGLISH      |   PERFECT   |
 ## requidment of adding new manga to our website.
-scrapy framework 
+- scrapy framework 
 ### instalation 
-you can install Scrapy using the Python package manager, pip. Open a command prompt or terminal window and run the following command
-`pip install scrapy`
+- you can install Scrapy using the Python package manager, pip. Open a command prompt or terminal window and run the following command
+--`pip install scrapy` 
 ## adding new files to our-website 
- just download 
+1.Download this  repository from this [link](https://github.com/Dahmane-tech/manga-hero/archive/refs/heads/main.zip).
+2. Visit one of the supported domains.
+3. Search for your manga and go to its main page where you can find the description and chapters.
+4. Copy the URL of the manga's main page.
+5. Run the scrap.bat file on your Windows machine.
+6. Paste the copied link when prompted.
+7. That's it! The scraping process will start automatically.
+### example of main page of manga
+-one piece
+--`https://kissmanga.org/manga/manga-aa951409`
