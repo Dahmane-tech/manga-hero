@@ -1,3 +1,5 @@
 # manga-hero
 ####An manga-web-page based on  scrapy spiders
-[![MIT license](https://img.shields.io/badge/license-MIT-green "MIT license")](./LICENSE.md "MIT license") [![Scrapy Spider](https://img.shields.io/badge/-scrapy-3A9E9E "MIT license")](https://scrapy.org/ "scrapy spider") [![Scrapy Spiderr](https://img.shields.io/badge/-scrapy-3A9E9E "MIT license")](https://scrapy.org/ "scrapy spiders")
+[![MIT license](https://img.shields.io/badge/license-MIT-green "MIT license")](./LICENSE.md "MIT license") [![Scrapy Spider](https://img.shields.io/badge/-scrapy-3A9E9E "Scrapy Spider")](https://scrapy.org/ "scrapy spider") ![Manga Hero](https://img.shields.io/static/v1?label=Web%20site&message=manga-hero&color=3A9E9F "Manga Hero")
+
+[===================================]
