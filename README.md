@@ -48,13 +48,13 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - you can install Scrapy using the Python package manager, pip. Open a command prompt or terminal window and run the following command
 --`pip install scrapy` 
 ## adding new files to our-website 
-1.Download this  repository from this [link](https://github.com/Dahmane-tech/manga-hero/archive/refs/heads/main.zip).
-2. Visit one of the supported domains.
-3. Search for your manga and go to its main page where you can find the description and chapters.
-4. Copy the URL of the manga's main page.
-5. Run the scrap.bat file on your Windows machine.
-6. Paste the copied link when prompted.
-7. That's it! The scraping process will start automatically.
+ 1. Download this  repository from this [link](https://github.com/Dahmane-tech/manga-hero/archive/refs/heads/main.zip).
+ 2. Visit one of the supported domains.
+ 3. Search for your manga and go to its main page where you can find the description and chapters.
+ 4. Copy the URL of the manga's main page.
+ 5. Run the scrap.bat file on your Windows machine.
+ 6. Paste the copied link when prompted.
+ 7. That's it! The scraping process will start automatically.
 ### example of main page of manga
 -one piece
---`https://kissmanga.org/manga/manga-aa951409`
+ --`https://kissmanga.org/manga/manga-aa951409`
