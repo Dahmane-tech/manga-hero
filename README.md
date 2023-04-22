@@ -15,7 +15,8 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - [x] Regular updates and improvements for better performance.
 - [x] Well-documented code for easy understanding and maintenance.
 - [x] Active community support for any questions or issues.
-- [x] ad-free 
+- [x] ad-free.
+- [x] No central management, allowing anyone to add a manga as they wish.
 
 ## to do 
 - [ ] Background keyframe bookmarking for chapters,
@@ -34,7 +35,7 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - [ ] Support for two viewing modes: continuous scrolling and single-page view.
 - [x] MIT license for open-source usage, ensuring compliance with open-source standards.
 ## supported domains
-|                    SITE                    |   NATIV LANGUAG    |   STATUS    |
+|                    SITE                    |   NATIVE LANGUAGE  |   STATUS    |
 |:------------------------------------------:|:------------------:|:-----------:|
 |     [azoranov](https://azoranov.com/)      |       ARABIC       |   PERFECT   |
 | [aresmanga](https://aresmanga.net/series/) |       ARABIC       |   PERFECT   |
@@ -43,4 +44,10 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 |    [kissmanga](https://kissmanga.org/)     |       ENGLISH      |   PERFECT   |
 |   [bibimanga](https://bibimanga.com/)      |       ENGLISH      |   PERFECT   |
 |   [manganelo](https://ww5.manganelo.tv/)   |       ENGLISH      |   MEDIUM    |
-
+## requidment of adding new manga to our website.
+scrapy framework 
+### instalation 
+you can install Scrapy using the Python package manager, pip. Open a command prompt or terminal window and run the following command
+`pip install scrapy`
+## adding new files to our-website 
+ just download 
