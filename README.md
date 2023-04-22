@@ -15,6 +15,7 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - [x] Regular updates and improvements for better performance.
 - [x] Well-documented code for easy understanding and maintenance.
 - [x] Active community support for any questions or issues.
+- [x] ad-free 
 
 ## to do 
 - [ ] Background keyframe bookmarking for chapters,
@@ -33,14 +34,13 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - [ ] Support for two viewing modes: continuous scrolling and single-page view.
 - [x] MIT license for open-source usage, ensuring compliance with open-source standards.
 ## supported domains
-|   1|2   |
-| ------------ | ------------ |
-| 1  |2   |
-|   8|   22|
-|   5|   4|
-|   1|   5|
-|   8|   8|
-|   8|   9|
-|   6|   10|
-|   5|   11|
-|   4|   12|
+|                    SITE                    |   NATIV LANGUAG    |   STATUS    |
+|:------------------------------------------:|:------------------:|:-----------:|
+|     [azoranov](https://azoranov.com/)      |       ARABIC       |   PERFECT   |
+| [aresmanga](https://aresmanga.net/series/) |       ARABIC       |   PERFECT   |
+| [ozulscans](https://ozulscans.com/manga/)  |       ARABIC       |   PERFECT   |
+|       [team1x1](https://team1x1.fun)       |       ARABIC       |   PERFECT   |
+|    [kissmanga](https://kissmanga.org/)     |       ENGLISH      |   PERFECT   |
+|   [bibimanga](https://bibimanga.com/)      |       ENGLISH      |   PERFECT   |
+|   [manganelo](https://ww5.manganelo.tv/)   |       ENGLISH      |   MEDIUM    |
+
