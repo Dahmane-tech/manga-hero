@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap");	
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap'); 
+	 body{
+	 
+    margin: 0px;
+	  }
+	  body::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--color-darkblue);
+    background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://cdn.wallpapersafari.com/68/40/ubwcDK.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    filter: blur(2px);
+ }
+      
+      #chapters {
+        display: none;
+      }
+	  .card-image {
+		display: block;
+	min-height: 20rem;
+	background: #fff center center no-repeat;
+	background-size: cover;
+	}
+	.card-image > img {
+	display: block;
+	width: 100%;
+	opacity: 0; 
+	}
+	#chapters{
+		padding: 0px;
+		}
+	#chapters li{
+		display: flex;
+		justify-content: center;
+		}
+	#chapters li ul{
+	    position: relative;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		flex-wrap: wrap;
+		width: 45em;
+		padding: 0px;
+		border-right: 4px solid #424242;
+		border-left: 6px solid #424242;
+		box-shadow: 0px 7px 9px 2px #000;
+		background-color: white;
+		}
+	#note{
+	    position: absolute;
+    width: 11em;
+    color: gold;
+    right: 13.5%;
+    top: 89.6%;
+    background: black;
+    border-radius: 26%;
+    padding: 8px;
+    opacity: .45;
+    font-size: 12px;
+    font-family: cursive;
+    /* z-index: 10000; */}
+	#note:hover{
+		opacity:1
+	}
+	.manga-headers{
+		             background-color: #222;
+    display: flex;
+    flex-direction: column;
+    color: #999;
+    background-image: linear-gradient(-45deg, #1CB5e0, #000046) !important;
+    /* height: 5em; */}
+	
+	.discription-headers{
+		            position: relative;
+		            top: 0;
+		            left: 0;
+		            height: 100%;
+		            width: 100%;
+		            z-index: -1;
+		            background-image: linear-gradient(      45deg,      rgb(23 23 155),      rgba(136, 136, 206, 0.4)    ),    url(https://wallpaperboat.com/wp-content/uploads/2020/04/manga-wallpaper-1920x1080-1.jpg);
+		            background-size: cover;
+		            background-repeat: no-repeat;
+		            background-position: bottom;
+		            display: flex;
+		            align-items: center;
+		            }
+	#cover-image{
+	    margin: 0px 26px;
+	    border-radius: 26px;
+	    height: 12em;
+	    width: 11em;
+		visibility: hidden;
+	    }
+	
+	#title{
+		font-family: "Ceviche One";
+		box-shadow: none;
+		background-color: rgba(22,22,22,0.6);
+		color: #ffffff !important;
+		llsfont-family: 'Amiri', serif;
+		text-transform: capitalize;
+		border-top-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+		text-align: center;
+		font-size: 38px !important;
+		border-top-right-radius: 20px;
+		border-bottom-left-radius: 20px;
+		text-shadow: 0 0 5px rgb(58 58 280 / 100%), 0 0 13px rgb(58 58 280 / 100%);
+		letter-spacing: 1px;
+		margin-left: 20px;
+		margin-right:20px;
+	}
+	#description {
+    background-color: rgb(24 24 34 / 54%);
+    /* height: 4em; */
+    border-radius: 20px;
+    direction: rtl;
+    padding: 27px;
+    color: #fff;
+    font-size: 17px;
+    font-family: 'Changa', sans-serif;
+	visibility: hidden;
+	
+}
+
+#chapters h2 {
+	    color: #fff;
+    background-color: #424242;
+    width: max-content;
+    padding: 4px;
+    border-radius: 10px;
+    position: relative;
+    border: antiquewhite;
+left: 7px;}
+#loading-image{
+    border-radius: 100%;
+    position: relative;
+    top: 50%;
+    right: 7%;
+    height: 100%;
+    width: 61%;}
+.left, .right {
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.left.active, .right.active, #description.active, #cover-image.active, .btn.active, #download-chapter-as-zip-btn.active{
+visibility: visible;}
+.right {
+  right: 0;
+  margin-right: 20px;
+  border-radius: 3px 0 0 3px;
+  background :none;
+  color: #242424;
+  border: none;
+  font-size: 40px;
+  position:fixed;
+}
+.left {
+	
+   margin-left: 20px;
+   background :none;
+   color: #242424;
+   border: none;
+   font-size: 40px;
+   position:fixed;
+}
+.left:hover, .right:hover {
+   background: rgb(58 58 158 / 80%);
+   color: #dfdfdf;
+}
+.go-to-top {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #999;
+  font-size: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 10px;
+  z-index: 10;
+  line-height: 1.4;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  right: 10px;
+  right: -ms-calc(-594.5%);
+  -webkit-transform: translateY(-60%);
+  -moz-transform: translateY(-60%);
+  -ms-transform: translateY(-60%);
+  -o-transform: translateY(-60%);
+  visibility: hidden;
+  opacity: 0;
+}
+.go-to-top.active {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+  z-index: 1001;
+}
+.go-to-top span {
+  font-size: 18px;
+  line-height: 1.9;
+  margin:0px;
+}
+.go-to-top:hover {
+  background-color: #eb3349;
+}
+.go-to-top:hover h1 {
+  color: #ffffff;
+}
+.btn {
+    width: 30px;
+    height: 30px;
+   
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+ 
+    color: #242424;
+    padding: 5px;
+    position: fixed;
+    text-align: center;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    visibility: hidden;
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    
+    background: rgb(58 58 158 / 80%);
+    color: #999999;
+}
+
+.zoom {
+	top:5%;
+	right:2%;
+
+}
+
+.zoom-out {
+	top:11%;
+	right:2%;
+
+}
+.zoom-init {
+	top:18%;
+	right:2%;
+  
+}
+#download-chapter-as-zip-btn {
+     display: inline-block;
+    padding: 12px 12em 10px;
+    border: 0;
+    border-radius: 3px;
+    background: rgb(58 58 158 / 80%);
+    text-decoration: none;
+    transition: all 1.2s ease-in-out;
+    position: relative;
+    left: 33%;
+	visibility:hidden;
+}
+
+#download-chapter-as-zip-btn i::after {
+    content: "\f019";
+    font-size: 40px;
+    color: #fff;
+  }
+
+#download-chapter-as-zip-btn:hover {
+    -webkit-animation: pulse 0.2s 2 both;
+            animation: pulse 0.2s 2 both;
+  }
+
+#download-chapter-as-zip-btn.loading i {
+      -webkit-animation: loading 2s infinite linear;
+              animation: loading 2s infinite linear;        
+    }
+
+#download-chapter-as-zip-btn.loading i::after {
+        content: "\f1ce";
+      }
+
+#download-chapter-as-zip-btn.success {
+    border-radius: 50%;
+    background: #80bca3;
+  }
+
+#download-chapter-as-zip-btn.success i::after {
+      content: "\f00c";
+      color: transparent;
+      -webkit-animation: change-icon 1s 0.6s linear both;
+              animation: change-icon 1s 0.6s linear both;
+    }
+
+@-webkit-keyframes loading {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(359deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes change-icon {
+  0% {
+    color: transparent;
+  }
+  
+  100% {
+    color: #fff;
+  }
+}
+
+@keyframes change-icon {
+  0% {
+    color: transparent;
+  }
+  
+  100% {
+    color: #fff;
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

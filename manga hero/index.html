@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,200" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<title>Manga Page</title>
+	<link rel="stylesheet" href="./manga_style.css">
+   
+  </head>
+  <body bg-col>
+  .
+   <div class="manga-headers"> 
+    </div>
+     <h1 id="title"></h1><div class="discription-headers"><p id="description"></p><p id="note">This is <span style="color:red">the test version</span> we are trying to add more features as soon as possible thanks for choosing us...Dahmane</p>
+    <img id="cover-image" src="">
+    <img id="loading-image" src="load.gif"></div>
+	<a class="btn zoom" ><i class="fas fa-search-plus"></i></a>
+	<a class="btn zoom-out"><i class="fas fa-search-minus"></i></a>
+	<a class="btn zoom-init"><i class="fas fa-recycle"></i></a>
+	<button class="left">&#10094;</button>
+    <button class="right">&#10095;</button>
+	<div class="go-to-top">
+                <span class="material-symbols-outlined">
+arrow_upward
+</span>
+            </div>
+	<ul id="chapters"></ul>
+    
+	<button href="" id="download-chapter-as-zip-btn"><i class="fa"></i></button>
+	<script src='https://use.fontawesome.com/97152d9c6b.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jszip@3.7.1/dist/jszip.min.js"></script>
+    <script>
+	window.addEventListener('load', function() {
+		var btn_left = document.querySelector('.left');
+		var btn_right = document.querySelector('.right');
+		let counter =new URLSearchParams(window.location.search).get('page') ? new URLSearchParams(window.location.search).get('page') : 0 ;
+		let manga_title = new URLSearchParams(window.location.search).get('name') ? new URLSearchParams(window.location.search).get('name') : 'One%20Piece.json';
+		let load_cover_using_proxy = new URLSearchParams(window.location.search).get('cov_proxy') ? new URLSearchParams(window.location.search).get('cov_proxy') : false ;
+		let load_images_using_proxy = new URLSearchParams(window.location.search).get('img_proxy') ? new URLSearchParams(window.location.search).get('img_proxy') : false ;
+        let chapters_len = 0;
+		var scrollToTopBtn = document.querySelector('.go-to-top');
+		var zoom_in = document.querySelector('.zoom');
+		var zoom_out = document.querySelector('.zoom-out');
+		var zoom_rest = document.querySelector('.zoom-init');
+		scrollToTopBtn.addEventListener('click', function () {
+			window.scroll({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+	window.addEventListener('scroll', function () {
+		var scrollToTopBtn = document.querySelector('.go-to-top');
+		if (window.scrollY >= (window.innerHeight * 0.5)) {
+			if (!scrollToTopBtn.classList.contains('active')) {
+				scrollToTopBtn.classList.add('active');
+				btn_left.classList.add('active');
+				btn_right.classList.add('active');
+				zoom_in.classList.add('active');
+				zoom_rest.classList.add('active');
+				zoom_out.classList.add('active');
+				
+			}
+		} 	else {
+				scrollToTopBtn.classList.remove('active');
+				btn_left.classList.remove('active');
+				btn_right.classList.remove('active');
+				zoom_in.classList.remove('active');
+				zoom_out.classList.remove('active');
+				zoom_rest.classList.remove('active');
+				
+			}
+	});
+	zoom_in.addEventListener('click', function() {
+		var mangaViewrWidth = window.getComputedStyle(document.querySelector('#chapters li ul')).width;
+		var mangaChaptherImagesWidth = window.getComputedStyle(document.querySelector('.card-image > img')).width;
+		if (parseInt(mangaViewrWidth) <= 840 ){
+			document.querySelector('#chapters li ul').style.width = (parseInt(mangaViewrWidth)+18)+'px';
+			document.querySelector('.card-image > img').style.width = (parseInt(mangaViewrWidth)+18)+'px';
+		}
+
+	});
+	zoom_out.addEventListener('click', function() {
+		var mangaViewrWidth = window.getComputedStyle(document.querySelector('#chapters li ul')).width;
+		var mangaChaptherImagesWidth = window.getComputedStyle(document.querySelector('.card-image > img')).width;
+		if (parseInt(mangaViewrWidth) >= 360 ){
+			document.querySelector('#chapters li ul').style.width = (parseInt(mangaViewrWidth)-18)+'px';
+			document.querySelector('.card-image > img').style.width = (parseInt(mangaViewrWidth)-18)+'px';
+		}
+
+	});
+	zoom_rest.addEventListener('click', function() {
+		var mangaViewrWidth = window.getComputedStyle(document.querySelector('#chapters li ul')).width;
+		var mangaChaptherImagesWidth = window.getComputedStyle(document.querySelector('.card-image > img')).width;
+		var i=0 ;
+			if (i==0){
+				document.querySelector('#chapters li ul').style.width = '720px';
+				document.querySelector('.card-image > img').style.width = '720px';
+				i++;
+				zoom_rest.querySelector('i').classList.remove('fa-recycle');
+				zoom_rest.querySelector('i').classList.add('fa-arrows-alt-h');
+			}else{if(i==1){
+				document.querySelector('#chapters li ul').style.width = '840px';
+				document.querySelector('.card-image > img').style.width = '840px';
+				i++;
+				zoom_rest.querySelector('i').classList.remove('fa-arrows-alt-h');
+				zoom_rest.querySelector('i').classList.add('fa-arrows-alt-h');
+		
+			}else{if(i==2){
+			document.querySelector('#chapters li ul').style.width = '360px';
+			document.querySelector('.card-image > img').style.width = '360px';
+			i=0;
+			}}}
+			
+
+	});
+    btn_left.addEventListener('click', function() {
+		if (counter > 0) {
+			counter--;
+		}
+		else {
+			counter = chapters_len - 1;        
+		}
+       const urlParams = new URLSearchParams(window.location.search);
+		urlParams.set('page', counter);
+		window.location.search = urlParams.toString();
+    });
+
+    btn_right.addEventListener('click', function() {
+		if (counter < chapters_len - 1) {
+        counter++;
+      } 
+		else {
+        counter = 0;        
+      }
+		const urlParams = new URLSearchParams(window.location.search);
+		urlParams.set('page', counter);
+		window.location.search = urlParams.toString();
+    });
+	axios.get(`https://api.github.com/repos/Dahmane-tech/scrap-manga/contents/${manga_title}`, {
+		headers: {
+			Authorization: 'token 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',
+			Accept: 'application/vnd.github.v3.raw+json'
+		}
+    })
+	.then((response) => {
+		const content = response.data.content;
+		const decodedContent = content ? atob(content):response.data; // Decode the base64 content
+		const mangaUrl = response.data.download_url; 
+        const mangaData = content ? JSON.parse(decodedContent)[0]:decodedContent[0] ;
+        document.getElementById('title').textContent = mangaData.title;
+        document.getElementById('description').textContent = mangaData.description;
+        document.getElementById('cover-image').src = load_cover_using_proxy ? `http://api.scraperapi.com?api_key=79240b1dd432b5548d776a247b8116c9&url=${mangaData.image_url}`:mangaData.image_url ;
+            
+        const chaptersList = document.getElementById('chapters');
+          //  for (const chapter of mangaData.chapters) {
+		      const chapter = mangaData.chapters[counter]
+			  chapters_len = mangaData.chapters.length
+			  console.log(mangaData.chapters.length);
+			  console.log(mangaUrl);
+              const chapterListItem = document.createElement('li');
+              const chapterTitle = document.createElement('h2');
+              chapterTitle.textContent = chapter.chapter_title;
+              //chapterListItem.appendChild(chapterTitle);
+              const chapterImagesList = document.createElement('ul');
+			  imageUrls = chapter.images;
+              for (const image of chapter.images) {
+              const chapterImageItem = document.createElement('li');
+              const chapterImage = document.createElement('div');
+              chapterImage.src = load_images_using_proxy ? `http://api.scraperapi.com?api_key=79240b1dd432b5548d776a247b8116c9&url=${image}` : image;
+			  chapterImageItem.className = "card";
+			  var cardImage = document.createElement("div");
+			cardImage.className = "card-image";
+				cardImage.style.backgroundImage = "url('load.gif')";
+				cardImage.setAttribute("data-image-full", image);
+				var img = document.createElement("img");
+				img.alt = mangaData.title;
+				cardImage.appendChild(img);
+				chapterImageItem.appendChild(cardImage);
+				
+                chapterImagesList.appendChild(chapterImageItem);
+              }
+              chapterListItem.appendChild(chapterImagesList);
+			  chaptersList.appendChild(chapterTitle);
+              chaptersList.appendChild(chapterListItem);
+			 
+	
+			  
+           // }
+            
+            // Hide the loading image and show the chapters list
+            document.getElementById('loading-image').style.display = 'none';
+			document.getElementById('description').classList.add("active");
+			document.getElementById('cover-image').classList.add("active");
+			document.getElementById('download-chapter-as-zip-btn').classList.add("active");
+            document.getElementById('chapters').style.display = 'block';
+         
+      console.log(decodedContent);
+    }).catch((error) => {
+      console.error(error);
+    });
+	
+
+	// setTimeout to simulate the delay from a real page load
+	setTimeout(lazyLoad, 1000);
+	
+});
+      
+
+function lazyLoad() {
+	var card_images = document.querySelectorAll('.card-image');
+	
+	// loop over each card image
+	card_images.forEach(function(card_image) {
+		var image_url = card_image.getAttribute('data-image-full');
+		var content_image = card_image.querySelector('img');
+		
+		// change the src of the content image to load the new high res photo
+		content_image.src = image_url;
+		
+		// listen for load event when the new photo is finished loading
+		content_image.addEventListener('load', function() {
+			// swap out the visible background image with the new fully downloaded photo
+			card_image.style.backgroundImage = 'url(' + image_url + ')';
+			
+			
+		});
+		
+	});
+	
+}
+const downloadBtn = document.getElementById("download-chapter-as-zip-btn");
+
+downloadBtn.addEventListener("click", () => {
+  const zip = new JSZip();
+  downloadBtn.classList.add('loading');
+  const requests = imageUrls.map((imageUrl, index) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        axios
+		   
+          .get(`https://api.scraperapi.com?api_key=79240b1dd432b5548d776a247b8116c9&url=${imageUrl}`, { responseType: "blob" })
+          .then((response) => {
+			console.log(`http://api.scraperapi.com?api_key=79240b1dd432b5548d776a247b8116c9&url=${imageUrl}`)
+            const imageUrlParts = imageUrls[index].split("/");
+            const imageName = imageUrlParts[imageUrlParts.length - 1];
+            zip.file(imageName, response.data);
+            resolve();
+          })
+          .catch((error) => {
+            console.error(`Error fetching image from URL: ${imageUrl}`, error);
+            resolve();
+          });
+      }, index * 1000); // Delay in milliseconds (1 second = 1000 milliseconds)
+    });
+  });
+
+  Promise.all(requests)
+    .then(() => {
+      zip.generateAsync({ type: "blob" }).then((blob) => {
+        const zipName = `${document.getElementById('title').textContent}_${document.querySelector("ul#chapters h2").textContent}.zip`;
+        const downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = zipName;
+        downloadLink.click();
+        downloadBtn.classList.remove('loading');
+        downloadBtn.classList.add('success');
+        window.setTimeout(function () {
+          downloadBtn.classList.remove('success');
+        }, 8000);
+      });
+    })
+    .catch((error) => {
+      console.error("Error downloading images as ZIP", error);
+    });
+});
+
+    </script>
+</html>
