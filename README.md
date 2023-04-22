@@ -32,3 +32,15 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 - [ ] Chat room feature for each chapter (requires login) for interactive discussions.
 - [ ] Support for two viewing modes: continuous scrolling and single-page view.
 - [x] MIT license for open-source usage, ensuring compliance with open-source standards.
+## supported domains
+|   1|2   |
+| ------------ | ------------ |
+| 1  |2   |
+|   8|   22|
+|   5|   4|
+|   1|   5|
+|   8|   8|
+|   8|   9|
+|   6|   10|
+|   5|   11|
+|   4|   12|
