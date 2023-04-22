@@ -37,6 +37,7 @@ A manga web page based on Scrapy spiders that make it more flexible and simple
 |:------------------------------------------:|:------------------:|:-----------:|
 |     [azoranov](https://azoranov.com/)      |       ARABIC       |   PERFECT   |
 | [aresmanga](https://aresmanga.net/series/) |       ARABIC       |   PERFECT   |
+|.    [mangalek](https://mangalek.net)       |       ARABIC       |   PERFECT   |
 | [ozulscans](https://ozulscans.com/manga/)  |       ARABIC       |   PERFECT   |
 |     [team1x1](https://team1x1.fun)         |       ARABIC       |   PERFECT   |
 |     [kissmanga](https://kissmanga.org/)    |       ENGLISH      |   PERFECT   |
